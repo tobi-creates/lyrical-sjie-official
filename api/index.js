@@ -6,17 +6,14 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// --- Mongo Connect ---
 let cached = global.mongoose;
 if (!cached) cached = global.mongoose = { conn: null };
-
 async function connectDB() {
   if (cached.conn) return cached.conn;
   cached.conn = await mongoose.connect(process.env.MONGO_URI);
   return cached.conn;
 }
 
-// --- Schemas ---
 const bookingSchema = new mongoose.Schema({
   name: String, email: String, eventType: String, date: String, message: String
 },{ timestamps: true });
@@ -27,30 +24,26 @@ const messageSchema = new mongoose.Schema({
 const Booking = mongoose.models.Booking || mongoose.model('Booking', bookingSchema);
 const Message = mongoose.models.Message || mongoose.model('Message', messageSchema);
 
-// --- Routes ---
-app.get('/api/health', async (req,res)=>{
+app.get('/health', async (req,res)=>{
   try { await connectDB(); res.json({connected:true}); }
   catch(e){ res.status(500).json({connected:false, error:e.message}) }
 });
-
-app.get('/api/bookings', async (req,res)=>{
+app.get('/bookings', async (req,res)=>{
   await connectDB(); const data = await Booking.find().sort({createdAt:-1}); res.json(data);
 });
-app.get('/api/messages', async (req,res)=>{
+app.get('/messages', async (req,res)=>{
   await connectDB(); const data = await Message.find().sort({createdAt:-1}); res.json(data);
 });
-
-app.post('/api/bookings', async (req,res)=>{
+app.post('/bookings', async (req,res)=>{
   await connectDB(); const b = await Booking.create(req.body); res.json(b);
 });
-app.post('/api/messages', async (req,res)=>{
+app.post('/messages', async (req,res)=>{
   await connectDB(); const m = await Message.create(req.body); res.json(m);
 });
-
-app.delete('/api/bookings/:id', async (req,res)=>{
+app.delete('/bookings/:id', async (req,res)=>{
   await connectDB(); await Booking.findByIdAndDelete(req.params.id); res.json({ok:true});
 });
-app.delete('/api/messages/:id', async (req,res)=>{
+app.delete('/messages/:id', async (req,res)=>{
   await connectDB(); await Message.findByIdAndDelete(req.params.id); res.json({ok:true});
 });
 
