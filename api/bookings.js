@@ -6,6 +6,11 @@ module.exports = async (req,res)=>{
   res.setHeader('Access-Control-Allow-Origin','*'); res.setHeader('Access-Control-Allow-Methods','GET,POST,OPTIONS'); res.setHeader('Access-Control-Allow-Headers','Content-Type');
   if(req.method==='OPTIONS') return res.status(200).end();
   try{ await connectDB();
+    if(req.method==='DELETE'){
+  const id = req.query.id || (req.url.split('id=')[1]||'').split('&')[0];
+  await Model.findByIdAndDelete(id);
+  return res.json({ok:true});
+}
     if(req.method==='POST'){ const doc=await Model.create(req.body); return res.json({ok:true,id:doc._id}); }
     const data=await Model.find().sort({createdAt:-1}); return res.json(data);
   }catch(e){ res.status(500).json({error:e.message}); }
