@@ -1,2 +1,33 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><title>LYRICAL SJIE - CONTACT</title><style>:root{--red:#E11D2D;--blue:#1A4DFF;--dark:#080A12}body{background:var(--dark);color:white;font-family:system-ui;padding:40px}h1{font-size:48px}</style></head><body><h1>LYRICAL SJIE // CONTACT</h1><p>Sinonele Sinako Tobi - Langa N2 7455 Cape Town</p><p>Exported from lyrical-v2 preview - 2026-08-18T12:48:19.888Z</p><p>Real implementation should copy components from preview.</p></body></html>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Contact — Lyrical Sjie | Book | Langa N2 7455</title>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0706;--paper:#f5e6c8;--olive:#b13a18;--yellow:#ffb26b;--muted:rgba(245,230,200,.62);--border:#2f2118;--grad:linear-gradient(90deg,#b13a18,#ff6b3d,#ffb26b)}
+*{margin:0;padding:0;box-sizing:border-box}body{background:radial-gradient(1100px at 10% -10%,#3a1a0f 0%,var(--bg) 60%),var(--bg);color:var(--paper);font-family:'Space Grotesk',sans-serif}
+h1,h2,h3{font-family:'Anton',sans-serif;text-transform:uppercase;line-height:.9}
+a{color:inherit;text-decoration:none}
+.header{position:fixed;top:0;width:100%;padding:16px 4%;display:flex;justify-content:space-between;align-items:center;z-index:100;background:rgba(10,7,6,.88);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.nav{display:flex;gap:28px}.nav a{font-size:11px;letter-spacing:3px;opacity:.55}.nav a:hover,.nav a.active{opacity:1;color:var(--yellow);border-bottom:1px solid var(--olive)}
+.btn{padding:14px 32px;border-radius:100px;font-size:11px;letter-spacing:2.5px;font-weight:700;display:inline-block;border:0;cursor:pointer}.btn.primary{background:var(--grad);color:#120a06}
+.section{padding:140px 5% 80px}.card{background:linear-gradient(145deg,#1a130f,#120e0b);border:1px solid var(--border);border-radius:18px;padding:28px}
+input,select,textarea{width:100%;padding:14px 16px;border-radius:12px;border:1px solid #3a2416;background:#0e0a08;color:#fff;outline:none;margin-top:8px;font-family:'Space Grotesk'}
+input:focus,textarea:focus,select:focus{border-color:var(--yellow);box-shadow:0 0 0 3px rgba(255,178,107,.2)}
+.footer{padding:60px 5%;border-top:1px solid var(--border);display:flex;justify-content:space-between;font-size:10px;letter-spacing:2px;opacity:.6;flex-wrap:wrap;gap:12px;background:#080504}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:24px}@media(max-width:900px){.grid2{grid-template-columns:1fr}}
+</style></head><body>
+<div class="header"><div style="font-family:Anton;font-size:22px"><a href="index.html">LYRICAL SJIE</a> <span style="font-size:10px;opacity:.5;margin-left:10px">LANGA N2 7455</span></div><div class="nav"><a href="index.html">HOME</a><a href="music.html">MUSIC</a><a href="about.html">ABOUT</a><a href="contact.html" class="active">CONTACT</a></div><a href="https://youtube.com/@lyricalsjiet" target="_blank" class="btn primary" style="padding:10px 18px">YOUTUBE</a></div>
+<section class="section">
+<div style="border:1px solid var(--olive);color:var(--yellow);padding:6px 14px;border-radius:100px;font-size:10px;letter-spacing:2px;width:fit-content;margin-bottom:18px;background:rgba(177,58,24,.12)">BOOKINGS • LANGA N2 7455 • 24H RESPONSE</div>
+<h1 style="font-size:clamp(48px,8vw,100px)">BOOK // CONTACT</h1>
+<div class="grid2" style="margin-top:30px">
+<div class="card"><h3>Send Message</h3><form id="msgForm" style="margin-top:16px;display:flex;flex-direction:column;gap:10px"><input name="name" placeholder="Your Name" required><input name="email" type="email" placeholder="Email" required><textarea name="message" rows="4" placeholder="Message" required></textarea><button class="btn primary" type="submit">SEND MESSAGE</button><small id="msgStatus" style="opacity:.6"></small></form></div>
+<div class="card"><h3>Book Lyrical Sjie</h3><form id="bookForm" style="margin-top:16px;display:flex;flex-direction:column;gap:10px"><input name="name" placeholder="Your Name" required><input name="email" type="email" placeholder="Email" required><select name="eventType"><option>Live Performance</option><option>Feature</option><option>Studio Session</option><option>Other</option></select><input name="date" type="date"><textarea name="message" rows="3" placeholder="Event Details"></textarea><button class="btn primary" type="submit">REQUEST BOOKING</button><small id="bookStatus" style="opacity:.6"></small></form><p style="margin-top:16px;opacity:.5;font-size:11px;letter-spacing:1px">Sinonele Sinako Tobi — Langa N2 7455, Cape Town, Western Cape 7441→7455 South Africa<br>sinonelesinakotobi@gmail.com</p></div>
+</div>
+</section>
+<div class="footer"><span>© 2026 LYRICAL SJIE — LANGA N2 7455</span><span>All forms wired to MongoDB lyricalsjiedb</span></div>
+<script>
+const API='/api';
+document.getElementById('msgForm').onsubmit=async(e)=>{e.preventDefault();const d=Object.fromEntries(new FormData(e.target));document.getElementById('msgStatus').textContent='Sending...';const r=await fetch(API+'/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(d)});document.getElementById('msgStatus').textContent=r.ok?'Message sent — saved to DB!':'Error';if(r.ok)e.target.reset()};
+document.getElementById('bookForm').onsubmit=async(e)=>{e.preventDefault();const d=Object.fromEntries(new FormData(e.target));document.getElementById('bookStatus').textContent='Sending...';const r=await fetch(API+'/bookings',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(d)});document.getElementById('bookStatus').textContent=r.ok?'Booking sent — saved to DB!':'Error';if(r.ok)e.target.reset()};
+</script>
+</body></html>

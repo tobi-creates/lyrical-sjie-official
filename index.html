@@ -1,97 +1,80 @@
 <!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>LYRICAL SJIE — Official | Langa N2 Tweedy, Cape Town</title>
-<meta name="description" content="Lyrical Sjie official site — Langa N2 artist. Music, videos, bookings. FB 1.4k, IG @lyricalsjie, TikTok, X, YouTube, Snapchat. MongoDB lyricalsjiedb">
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@300;400;600;700&display=swap" rel="stylesheet">
+<title>LYRICAL SJIE — Official | Langa N2 7455, Cape Town</title>
+<meta name="description" content="Lyrical Sjie official site — Langa N2 7455 artist. Music, videos, bookings. FB 1.4k, IG @lyricalsjie, TikTok, X, YouTube, Snapchat. MongoDB lyricalsjiedb">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@300;400;600;700&family=Cinzel:wght@700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#070707;--paper:#F5F1E8;--olive:#6B7F59;--yellow:#FFD60A;--muted:rgba(245,241,232,0.6)}
+:root{--bg:#0a0706;--bg2:#14100e;--paper:#f5e6c8;--olive:#b13a18;--yellow:#ffb26b;--yellow2:#ffd07a;--muted:rgba(245,230,200,0.62);--border:#2f2118;--grad:linear-gradient(90deg,#b13a18,#ff6b3d,#ffb26b)}
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:var(--bg);color:var(--paper);font-family:'Space Grotesk',sans-serif;overflow-x:hidden}
+body{background:radial-gradient(1100px at 10% -10%,#3a1a0f 0%,var(--bg) 60%),var(--bg);color:var(--paper);font-family:'Space Grotesk',sans-serif;overflow-x:hidden}
 h1,h2,h3{font-family:'Anton',sans-serif;text-transform:uppercase;line-height:0.9;letter-spacing:1px}
 a{color:inherit;text-decoration:none}
-.header{position:fixed;top:0;width:100%;padding:16px 4%;display:flex;justify-content:space-between;align-items:center;z-index:100;background:rgba(7,7,7,0.85);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.06)}
+.header{position:fixed;top:0;width:100%;padding:16px 4%;display:flex;justify-content:space-between;align-items:center;z-index:100;background:rgba(10,7,6,0.88);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
 .nav{display:flex;gap:28px}.nav a{font-size:11px;letter-spacing:3px;opacity:0.55;transition:0.2s}.nav a:hover,.nav a.active{opacity:1;color:var(--yellow);border-bottom:1px solid var(--olive)}
 .btn{padding:14px 32px;border-radius:100px;font-size:11px;letter-spacing:2.5px;font-weight:700;display:inline-block;transition:0.25s;cursor:pointer;border:0}
-.btn.primary{background:var(--paper);color:var(--bg)}.btn.primary:hover{background:var(--yellow);transform:translateY(-2px)}
-.btn.ghost{border:1px solid rgba(255,255,255,0.15);color:var(--paper)}.btn.ghost:hover{border-color:var(--yellow);color:var(--yellow)}
+.btn.primary{background:var(--grad);color:#120a06}.btn.primary:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(255,107,61,.35)}
+.btn.ghost{border:1px solid rgba(255,200,120,0.18);color:var(--paper)}.btn.ghost:hover{border-color:var(--yellow);color:var(--yellow)}
 .hero{position:relative;min-height:100vh;padding:140px 5% 80px;display:flex;align-items:center;overflow:hidden}
 .ghost-text{position:absolute;top:10%;left:-2%;font-family:'Anton';font-size:22vw;line-height:0.8;opacity:0.04;white-space:nowrap;pointer-events:none;animation:drift 30s linear infinite}
 @keyframes drift{0%{transform:translateX(0)}100%{transform:translateX(-10%)}}
-.hero-img{position:absolute;right:4%;top:18%;width:44%;height:72%;border-radius:20px;overflow:hidden;transform:rotate(-1.5deg);border:1px solid rgba(255,255,255,0.08)}
-.hero-img img{width:100%;height:100%;object-fit:cover;filter:grayscale(0.1) contrast(1.1)}
+.hero-img{position:absolute;right:4%;top:18%;width:44%;height:72%;border-radius:20px;overflow:hidden;transform:rotate(-1.5deg);border:1px solid var(--border);box-shadow:0 20px 60px rgba(0,0,0,.7)}
+.hero-img img{width:100%;height:100%;object-fit:cover;filter:grayscale(0.05) contrast(1.05)}
 .section{padding:120px 5% 80px;position:relative}
-.card{background:#111;border:1px solid rgba(255,255,255,0.06);border-radius:18px;padding:24px;transition:0.3s}
-.card:hover{transform:translateY(-4px);border-color:rgba(255,214,10,0.25)}
-.video-wrap{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:16px;background:#000}
-.video-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
-.marquee{overflow:hidden;white-space:nowrap;border-top:1px solid rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.06);padding:14px 0;background:#0d0d0d}
+.card{background:linear-gradient(145deg,#1a130f,#120e0b);border:1px solid var(--border);border-radius:18px;padding:24px;transition:0.3s}
+.card:hover{transform:translateY(-4px);border-color:rgba(255,178,107,0.28);box-shadow:0 15px 40px rgba(0,0,0,.5)}
+.marquee{overflow:hidden;white-space:nowrap;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:14px 0;background:#0e0a08}
 .marquee span{font-family:'Anton';font-size:20px;letter-spacing:4px;margin-right:60px;opacity:0.8}
 .marquee-track{display:flex;animation:marquee 25s linear infinite}
 @keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-.footer{padding:60px 5%;border-top:1px solid rgba(255,255,255,0.06);display:flex;justify-content:space-between;font-size:10px;letter-spacing:2px;opacity:0.5;flex-wrap:wrap;gap:12px}
-.audio-player{position:fixed;bottom:20px;right:20px;z-index:200;background:#111;border:1px solid rgba(255,255,255,0.1);padding:10px 14px;border-radius:100px;display:flex;align-items:center;gap:12px}
-.audio-player button{background:var(--paper);color:#000;border:0;width:32px;height:32px;border-radius:50%;cursor:pointer;font-weight:700}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:24px}
-.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.footer{padding:60px 5%;border-top:1px solid var(--border);display:flex;justify-content:space-between;font-size:10px;letter-spacing:2px;opacity:0.6;flex-wrap:wrap;gap:12px;background:#080504}
+.audio-player{position:fixed;bottom:20px;right:20px;z-index:200;background:#1a130f;border:1px solid var(--border);padding:10px 14px;border-radius:100px;display:flex;align-items:center;gap:12px;box-shadow:0 10px 30px rgba(0,0,0,.6)}
+.audio-player button{background:var(--grad);color:#000;border:0;width:32px;height:32px;border-radius:50%;cursor:pointer;font-weight:700}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:24px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.social-bar{display:flex;gap:14px;flex-wrap:wrap;margin-top:22px}.social-bar a{font-size:10px;letter-spacing:2px;opacity:.55;border:1px solid var(--border);padding:7px 12px;border-radius:100px;transition:.2s}.social-bar a:hover{opacity:1;border-color:var(--yellow);color:var(--yellow)}
 @media(max-width:900px){.grid2,.grid3{grid-template-columns:1fr}.hero-img{position:relative;width:100%;height:420px;right:auto;top:auto;transform:none;margin-top:30px}.hero{flex-direction:column;align-items:flex-start;min-height:auto}}
 .reveal{opacity:0;transform:translateY(18px);transition:0.7s ease}.reveal.active{opacity:1;transform:none}
 </style></head><body>
 
 <div class="header">
-  <div style="font-family:Anton;font-size:22px;letter-spacing:2px"><a href="index.html">LYRICAL SJIE</a> <span style="font-size:10px;letter-spacing:3px;opacity:0.5;margin-left:10px">LANGA N2</span></div>
-  <div class="nav"><a href="index.html" class="active">HOME</a><a href="music.html" class="">MUSIC</a><a href="about.html" class="">ABOUT</a><a href="contact.html" class="">CONTACT</a></div>
+  <div style="font-family:Anton;font-size:22px;letter-spacing:2px"><a href="index.html">LYRICAL SJIE</a> <span style="font-size:10px;letter-spacing:3px;opacity:0.5;margin-left:10px">LANGA N2 7455</span></div>
+  <div class="nav"><a href="index.html" class="active">HOME</a><a href="music.html">MUSIC</a><a href="about.html">ABOUT</a><a href="contact.html">CONTACT</a></div>
   <a href="https://youtube.com/@lyricalsjiet" target="_blank" class="btn primary" style="padding:10px 18px">YOUTUBE</a>
 </div>
-<div class="audio-player">
-  <button id="musicToggle">♪</button>
-  <span style="font-size:10px;letter-spacing:2px">BG: TAKE ME HOME</span>
-  <audio id="bgAudio" loop><source src="assets/audio/nc-preview.mp3" type="audio/mpeg"></audio>
-</div>
+<div class="audio-player"><button id="musicToggle">♪</button><span style="font-size:10px;letter-spacing:2px">BG: TAKE ME HOME</span><audio id="bgAudio" loop><source src="assets/audio/nc-preview.mp3" type="audio/mpeg"></audio></div>
 
 <section class="hero">
-  <div class="ghost-text">LANGA N2 TWEEDY LANGA N2 TWEEDY LANGA N2 TWEEDY</div>
+  <div class="ghost-text">LANGA N2 7455 LANGA N2 7455 LANGA N2 7455</div>
   <div style="max-width:680px;z-index:2" class="reveal active">
-    <div style="border:1px solid var(--olive);color:var(--olive);padding:6px 14px;border-radius:100px;font-size:10px;letter-spacing:2px;width:fit-content;margin-bottom:22px">OFFICIAL • LANGA N2 7455 • CAPE TOWN</div>
+    <div style="border:1px solid var(--olive);color:var(--yellow);padding:6px 14px;border-radius:100px;font-size:10px;letter-spacing:2px;width:fit-content;margin-bottom:22px;background:rgba(177,58,24,.12)">OFFICIAL • LANGA N2 7455 • CAPE TOWN</div>
     <h1 style="font-size:clamp(54px,9vw,128px)">LYRICAL<br>SJIE</h1>
-    <p style="margin:22px 0;color:var(--muted);max-width:520px;line-height:1.6">From courtyard to world. Rapper / tech builder. Latest album: Take Me Home. Elevating Langa stories — satellite dishes, wifi hotspots, golden hour shadows. Site wired to MongoDB: mongodb://localhost:27017/lyricalsjiedb</p>
+    <p style="margin:22px 0;color:var(--muted);max-width:520px;line-height:1.6">From courtyard to world. Rapper / tech builder. Latest album: Take Me Home. Elevating Langa stories — satellite dishes, wifi hotspots, golden hour shadows. Sinonele Sinako Tobi — Langa N2 7455 Cape Town.</p>
     <div style="display:flex;gap:12px;flex-wrap:wrap"><a href="music.html" class="btn primary">LISTEN NOW</a><a href="contact.html" class="btn ghost">BOOK FOR SHOW</a></div>
-    
-<div class="social-bar">
-  <a href="https://www.instagram.com/lyricalsjie" target="_blank">IG @LYRICALSJIE</a>
-  <a href="https://www.tiktok.com/@lyricalsjie" target="_blank">TIKTOK @LYRICALSJIE</a>
-  <a href="https://x.com/lyrical_sjie" target="_blank">X @LYRICAL_SJIE</a>
-  <a href="https://www.facebook.com/61572312385733" target="_blank">FB LYRICAL SJIE</a>
-  <a href="https://youtube.com/@lyricalsjiet" target="_blank">YT LYRICAL SJIE</a>
-  <a href="https://www.snapchat.com/add/lyricalsjie" target="_blank">SNAP LYRICALSJIE</a>
-</div>
-
-    <div style="margin-top:18px;font-size:10px;letter-spacing:2px;opacity:0.5">33.94°S 18.53°E • YT @lyricalsjiet • EST. LANGA</div>
+    <div class="social-bar">
+      <a href="https://www.instagram.com/lyricalsjie" target="_blank">IG @LYRICALSJIE</a>
+      <a href="https://www.tiktok.com/@lyricalsjie" target="_blank">TIKTOK</a>
+      <a href="https://x.com/lyrical_sjie" target="_blank">X @LYRICAL_SJIE</a>
+      <a href="https://www.facebook.com/61572312385733" target="_blank">FB</a>
+      <a href="https://youtube.com/@lyricalsjiet" target="_blank">YT</a>
+      <a href="https://www.snapchat.com/add/lyricalsjie" target="_blank">SNAP</a>
+    </div>
+    <div style="margin-top:18px;font-size:10px;letter-spacing:2px;opacity:0.5">33.94°S 18.53°E • YT @lyricalsjiet • EST. LANGA N2 7455</div>
   </div>
-  <div class="hero-img reveal active"><img src="assets/images/hero-1.jpg" alt="Lyrical Sjie Langa WIFI"><div style="position:absolute;bottom:14px;left:14px;background:rgba(0,0,0,0.65);backdrop-filter:blur(10px);padding:8px 12px;border-radius:100px;font-size:10px;letter-spacing:2px">TOO MUCH WIFI HOTSPOT — LANGA</div></div>
+  <div class="hero-img reveal active"><img src="assets/images/hero-1.jpg" alt="Lyrical Sjie Langa"><div style="position:absolute;bottom:14px;left:14px;background:rgba(10,7,6,0.7);backdrop-filter:blur(10px);padding:8px 12px;border-radius:100px;font-size:10px;letter-spacing:2px;border:1px solid var(--border)">TOO MUCH WIFI HOTSPOT — LANGA 7455</div></div>
 </section>
 <div class="marquee"><div class="marquee-track">
-<span>TAKE ME HOME</span><span>•</span><span>ELEVATE</span><span>•</span><span>LONDON TO L.A!</span><span>•</span><span>NC ✨</span><span>•</span><span>FOLLOW ME ON ALL PLATFORMS</span><span>•</span>
-<span>TAKE ME HOME</span><span>•</span><span>ELEVATE</span><span>•</span><span>LONDON TO L.A!</span><span>•</span><span>NC ✨</span><span>•</span><span>FOLLOW ME ON ALL PLATFORMS</span><span>•</span>
+<span>TAKE ME HOME</span><span>•</span><span>ELEVATE</span><span>•</span><span>LONDON TO L.A!</span><span>•</span><span>NC ✨</span><span>•</span><span>LANGA N2 7455</span><span>•</span>
+<span>TAKE ME HOME</span><span>•</span><span>ELEVATE</span><span>•</span><span>LONDON TO L.A!</span><span>•</span><span>NC ✨</span><span>•</span><span>LANGA N2 7455</span><span>•</span>
 </div></div>
 <section class="section"><div class="grid3">
-  <div class="card reveal"><img src="assets/images/take-me-home.jpg" style="width:100%;height:220px;object-fit:cover;border-radius:12px;margin-bottom:12px"><h3>TAKE ME HOME</h3><p style="opacity:0.6">Album out now — black & white Ford era, Langa parking lot, parental advisory positive content.</p><a href="music.html" class="btn primary" style="width:100%;text-align:center;margin-top:10px">LISTEN</a></div>
-  <div class="card reveal"><img src="assets/images/profile.jpg" style="width:100%;height:220px;object-fit:cover;border-radius:12px;margin-bottom:12px"><h3>PEACE OF MIND</h3><p style="opacity:0.6">Street life, backpack, phone in hand — Langa daily.</p></div>
-  <div class="card reveal"><img src="assets/images/follow-me.jpg" style="width:100%;height:220px;object-fit:cover;border-radius:12px;margin-bottom:12px"><h3>FOLLOW THE MOVEMENT</h3><p style="opacity:0.6">6 platforms — IG, TikTok, X, FB, YT, Snapchat — One love, let's grow together.</p><a href="https://www.instagram.com/lyricalsjie" target="_blank" class="btn ghost" style="width:100%;text-align:center;margin-top:10px">FOLLOW @LYRICALSJIE</a></div>
+  <div class="card reveal"><img src="assets/images/take-me-home.jpg" style="width:100%;height:220px;object-fit:cover;border-radius:12px;margin-bottom:12px"><h3>TAKE ME HOME</h3><p style="opacity:0.6">Album out now — Langa parking lot, golden hour, Langa N2 7455.</p><a href="music.html" class="btn primary" style="width:100%;text-align:center;margin-top:10px">LISTEN</a></div>
+  <div class="card reveal"><img src="assets/images/profile.jpg" style="width:100%;height:220px;object-fit:cover;border-radius:12px;margin-bottom:12px"><h3>PEACE OF MIND</h3><p style="opacity:0.6">Street life, backpack, phone in hand — Langa daily 7455.</p></div>
+  <div class="card reveal"><img src="assets/images/follow-me.jpg" style="width:100%;height:220px;object-fit:cover;border-radius:12px;margin-bottom:12px"><h3>FOLLOW THE MOVEMENT</h3><p style="opacity:0.6">6 platforms — One love, let's grow.</p><a href="https://www.instagram.com/lyricalsjie" target="_blank" class="btn ghost" style="width:100%;text-align:center;margin-top:10px">FOLLOW @LYRICALSJIE</a></div>
 </div></section>
-<div class="footer"><span>© 2026 LYRICAL SJIE — LANGA N2</span><span>sinonelesinakotobi@gmail.com • mongodb://localhost:27017/lyricalsjiedb</span></div>
+<div class="footer"><span>© 2026 LYRICAL SJIE — LANGA N2 7455, CAPE TOWN</span><span>sinonelesinakotobi@gmail.com • Sinonele Sinako Tobi</span></div>
 
 <script>
-const audio=document.getElementById('bgAudio');
-const btn=document.getElementById('musicToggle');
-let playing=false;
-btn.onclick=()=>{
- if(!playing){audio.volume=0.25;audio.play();btn.textContent='❚❚';playing=true;localStorage.setItem('sjie_bg','1')}
- else{audio.pause();btn.textContent='♪';playing=false;localStorage.setItem('sjie_bg','0')}
-};
+const audio=document.getElementById('bgAudio');const btn=document.getElementById('musicToggle');let playing=false;
+btn.onclick=()=>{if(!playing){audio.volume=0.25;audio.play();btn.textContent='❚❚';playing=true;localStorage.setItem('sjie_bg','1')}else{audio.pause();btn.textContent='♪';playing=false;localStorage.setItem('sjie_bg','0')}};
 if(localStorage.getItem('sjie_bg')==='1'){audio.volume=0.25;audio.play().catch(()=>{});btn.textContent='❚❚';playing=true;}
-const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('active')})},{threshold:0.15});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
-document.addEventListener('scroll',()=>{document.querySelectorAll('.ghost-text').forEach(el=>{el.style.transform=`translateX(${window.scrollY*0.08}px)`})});
+const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('active')})},{threshold:0.15});document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 </script>
-
 </body></html>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
