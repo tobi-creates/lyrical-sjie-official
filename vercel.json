@@ -4,7 +4,6 @@
     { "source": "/about", "destination": "/about.html" },
     { "source": "/music", "destination": "/music.html" },
     { "source": "/contact", "destination": "/contact.html" },
-    { "source": "/home", "destination": "/home.html" },
     { "source": "/admin", "destination": "/admin.html" }
   ],
   "cleanUrls": true

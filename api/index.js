@@ -1,63 +1,57 @@
-﻿const express = require('express');
-const mongoose = require('mongoose');
-const cors = require('cors');
-
-const app = express();
-app.use(cors());
-app.use(express.json());
+﻿const mongoose = require('mongoose');
 
 let isConnected = false;
 async function connectDB() {
   if (isConnected) return;
   const uri = process.env.MONGODB_URI;
-  if (!uri) throw new Error('MONGODB_URI missing');
+  if (!uri) throw new Error('MONGODB_URI missing - set it in Vercel env');
   await mongoose.connect(uri);
   isConnected = true;
 }
 
-// Schemas
 const MessageSchema = new mongoose.Schema({
-  name: String,
-  email: String,
-  message: String,
+  name: String, email: String, message: String,
   createdAt: { type: Date, default: Date.now }
 });
 const BookingSchema = new mongoose.Schema({
-  name: String,
-  email: String,
-  eventType: String,
-  date: String,
-  message: String,
+  name: String, email: String, eventType: String, date: String, message: String,
   createdAt: { type: Date, default: Date.now }
 });
 
 const Message = mongoose.models.Message || mongoose.model('Message', MessageSchema);
 const Booking = mongoose.models.Booking || mongoose.model('Booking', BookingSchema);
 
-// Routes
-app.get('/api/health', async (req, res) => {
-  try { await connectDB(); res.json({ ok: true, connected: true, db: 'lyricalsjiedb' }); }
-  catch (e) { res.status(500).json({ ok: false, error: e.message }); }
-});
+module.exports = async (req, res) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET,POST,OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  if (req.method === 'OPTIONS') return res.status(200).end();
 
-app.post('/api/messages', async (req, res) => {
-  try { await connectDB(); const doc = await Message.create(req.body); res.json({ ok: true, id: doc._id }); }
-  catch (e) { res.status(500).json({ ok: false, error: e.message }); }
-});
+  const url = req.url || '';
+  try {
+    await connectDB();
 
-app.post('/api/bookings', async (req, res) => {
-  try { await connectDB(); const doc = await Booking.create(req.body); res.json({ ok: true, id: doc._id }); }
-  catch (e) { res.status(500).json({ ok: false, error: e.message }); }
-});
-
-app.get('/api/messages', async (req, res) => {
-  try { await connectDB(); const data = await Message.find().sort({ createdAt: -1 }); res.json(data); }
-  catch (e) { res.status(500).json({ error: e.message }); }
-});
-
-app.get('/api/bookings', async (req, res) => {
-  try { await connectDB(); const data = await Booking.find().sort({ createdAt: -1 }); res.json(data); }
-  catch (e) { res.status(500).json({ error: e.message }); }
-});
-
-module.exports = app;
+    if (url.includes('/api/health') || url === '/api' || url === '/api/') {
+      return res.json({ ok: true, connected: true, db: 'lyricalsjiedb - 7455' });
+    }
+    if (url.includes('/api/messages') && req.method === 'POST') {
+      const doc = await Message.create(req.body);
+      return res.json({ ok: true, id: doc._id });
+    }
+    if (url.includes('/api/bookings') && req.method === 'POST') {
+      const doc = await Booking.create(req.body);
+      return res.json({ ok: true, id: doc._id });
+    }
+    if (url.includes('/api/messages') && req.method === 'GET') {
+      const data = await Message.find().sort({ createdAt: -1 });
+      return res.json(data);
+    }
+    if (url.includes('/api/bookings') && req.method === 'GET') {
+      const data = await Booking.find().sort({ createdAt: -1 });
+      return res.json(data);
+    }
+    return res.status(404).json({ error: 'Not found', url });
+  } catch (e) {
+    return res.status(500).json({ ok: false, error: e.message });
+  }
+};
