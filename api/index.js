@@ -9,7 +9,7 @@ app.use(express.json());
 const MONGO_URI = process.env.MONGO_URI;
 
 if (MONGO_URI) {
-  mongoose.connect(MONGO_URI).catch(e => console.error('Mongo error', e.message));
+  mongoose.connect(MONGO_URI).catch(e => console.error(e.message));
 }
 
 const ContactSchema = new mongoose.Schema({
@@ -17,17 +17,16 @@ const ContactSchema = new mongoose.Schema({
 });
 const Contact = mongoose.models.Contact || mongoose.model('Contact', ContactSchema);
 
-app.get('/api/health', async (req, res) => {
-  const state = mongoose.connection.readyState;
-  res.json({ status: 'ok', db: state === 1 ? 'connected' : 'disconnected', state });
+app.get('/api/health', async (req,res)=>{
+  res.json({ status:'ok', db: mongoose.connection.readyState===1?'connected':'disconnected' });
 });
 
-app.post('/api/contact', async (req, res) => {
+app.post('/api/contact', async (req,res)=>{
   try {
     const doc = await Contact.create(req.body);
-    res.json({ success: true, id: doc._id });
-  } catch (e) {
-    res.status(500).json({ success: false, error: e.message });
+    res.json({ success:true, id: doc._id });
+  } catch(e) {
+    res.status(500).json({ success:false, error:e.message });
   }
 });
 
