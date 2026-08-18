@@ -1,0 +1,24 @@
+:root{
+  --bg:#0a0605;
+  --card:#141010;
+  --gold:#d4af37;
+  --red-gold:#b76e2a;
+  --crimson:#8b1a1a;
+  --text:#f5e9d4;
+}
+
+body{
+  background: radial-gradient(1200px 600px at 20% -10%, #3a1a0a 0%, var(--bg) 60%);
+  color: var(--text);
+}
+a, .gold{ color: var(--gold); }
+.btn-gold{
+  background: linear-gradient(135deg, var(--red-gold), var(--gold));
+  color:#000; font-weight:800;
+  border:none; box-shadow:0 0 20px rgba(212,175,55,0.3);
+}
+.card{
+  background: linear-gradient(180deg, #1a1210, var(--card));
+  border:1px solid rgba(212,175,55,0.15);
+}
+.navbar{ background: rgba(10,6,5,0.9); backdrop-filter:blur(10px); border-bottom:1px solid rgba(212,175,55,0.15); }
